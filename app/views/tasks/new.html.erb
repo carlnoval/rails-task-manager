@@ -2,9 +2,12 @@
   <h1 class="headers">Create New Task</h1>
 
   <div class="form-container">
+  <%# @task is a task instance with nil values coming from the task_controller#new %>
+  <%# form_for and simple_form_for automatically sets the right request verb, in this case it is post %>
     <%= simple_form_for @task do |f| %>
       <%= f.input :title %>
       <%= f.input :details %>
+      <%# the form's submit automatically knows to post to the task_controller#create method %>
       <%= f.submit "Create New Task", class: "btn btn-primary btn-block py-2" %>
     <% end %>
   </div>

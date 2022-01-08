@@ -1,0 +1,11 @@
+<%# using bootstrap margin %>
+<h1 class="m-3">My Tasks</h1>
+
+<% @tasks.each do |task| %>
+  <%# this list uses bootstrap list group %>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item py-0"><i class="far fa-<%= task.completed ? "check-square" : "square" %>"></i>
+    <span><%= task.title %></span>
+    </li>
+  </ul>
+<% end %>

@@ -13,4 +13,12 @@
  *= require_tree .
  *= require_self
  */
- @import "bootstrap/scss/bootstrap"
+@import "bootstrap/scss/bootstrap";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+// resetting default paddings and margins
+html {
+  padding: 0px;
+  margin: 0px;
+}

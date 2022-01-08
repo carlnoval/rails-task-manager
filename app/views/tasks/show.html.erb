@@ -1,2 +1,12 @@
 <%# using bootstrap margin %>
-<h1 class="m-3">My Task</h1>
+<h1 class="m-3">Task: <%= @task.title %></h1>
+<h4 class="ml-3"><%= @task.details %></h4>
+
+<% if @task.completed %>
+  <p class="ml-3"><i class="far fa-check-square"></i> This task has been completed</p>
+<% else %>
+  <p class="ml-3"><i class="far fa-square"></i> This task has not completed yet</p>
+<% end %>
+
+<%# , class: "class name" can be used for helpers %>
+<%= link_to "Back to Task List", tasks_path, class: "btn btn-link ml-3 p-0" %>

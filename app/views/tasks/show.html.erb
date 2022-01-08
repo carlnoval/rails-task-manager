@@ -1,12 +1,17 @@
-<%# using bootstrap margin %>
-<h1 class="m-3">Task: <%= @task.title %></h1>
-<h4 class="ml-3"><%= @task.details %></h4>
+<div class="page-container">
+  <h1 class="headers">Task: <%= @task.title %></h1>
+  
+  <div class="task-info-container">
+    <h4 class="task-details"><%= @task.details %></h4>
+    
+    <p>
+      <i class="<%= @task.checked_or_unchecked %> task-checkbox"></i>
+      <%= @task.completed_or_not %>
+    </p>
+  </div>
 
-<% if @task.completed %>
-  <p class="ml-3"><i class="far fa-check-square"></i> This task has been completed</p>
-<% else %>
-  <p class="ml-3"><i class="far fa-square"></i> This task has not completed yet</p>
-<% end %>
-
-<%# , class: "class name" can be used for helpers %>
-<%= link_to "Back to Task List", tasks_path, class: "btn btn-link ml-3 p-0" %>
+  <%# link caption with fontawesome %>
+  <%= link_to tasks_path, class: "btn btn-link p-0" do %>
+    <i class="fas fa-undo"></i> Back to Task List
+  <% end %>
+</div>

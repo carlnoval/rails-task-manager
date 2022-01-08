@@ -1,11 +1,23 @@
-<%# using bootstrap margin %>
-<h1 class="m-3">Tasks List</h1>
+<%# class="container" is used by bootstrap, use othernames-container, get fucked if you forgot %>
+<div class="page-container">
+  <h1 class="headers">Tasks List</h1>
 
-<% @tasks.each do |task| %>
-  <%# this list uses bootstrap list group %>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item py-0"><i class="far fa-<%= task.completed ? "check-square" : "square" %>"></i>
-    <%= link_to task.title, task_path(task), class: "tasks-title" %>
-    </li>
-  </ul>
-<% end %>
+  <div class="task-container">
+    <% @tasks.each do |task| %>
+      <%# this list uses bootstrap list group %>
+      <ul class="list-group list-group-flush">
+        <%# chooses which fontawesome icon to use, which_box method is in the model %>
+        <li class="list-group-item p-0">
+          <i class="<%= task.checked_or_unchecked %> task-checkbox"></i>
+          <%# task_path(task) takes care of the task_id path %>
+          <%= link_to task.title, task_path(task), class: "tasks-title" %>
+        </li>
+      </ul>
+    <% end %>
+  </div>
+
+  <%# link caption with fontawesome %>
+  <%= link_to tasks_new_path, class: "btn btn-link p-0" do %>
+    <i class="fas fa-plus"></i> Add new Task
+  <% end %>
+</div>

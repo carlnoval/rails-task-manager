@@ -3,7 +3,54 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
 // resetting default paddings and margins
-html {
+* {
   padding: 0px;
   margin: 0px;
 }
+
+body {
+  background-color: rgb(245, 245, 245);
+}
+
+.headers {
+  margin-bottom: 1rem;
+}
+
+.task-checkbox {
+  margin-right: .5rem;
+}
+
+.task-details {
+  background-color: rgb(235, 235, 235);
+  border: 1px solid rgb(200, 200, 200);
+  border-radius: .5rem;
+  padding: 2rem 2rem;
+}
+
+.page-container {
+  margin: 2rem 2rem 0 2rem;
+}
+
+.task-container {
+  margin-bottom: 1rem;
+  padding: 0px 1rem 1rem;
+  border-bottom: 1px solid rgb(200, 200, 200);
+}
+
+.task-info-container {
+  p {
+    margin: 0px;
+  }
+  margin-bottom: 1rem;
+  padding: 0px 1rem 1rem;
+  border-bottom: 1px solid rgb(200, 200, 200);
+}
+
+.form-container {
+  margin-bottom: 1rem;
+  padding: 0px 1rem 1rem;
+  border-bottom: 1px solid rgb(200, 200, 200);
+}
+
+
+

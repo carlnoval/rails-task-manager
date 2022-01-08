@@ -1,1 +1,16 @@
-<h1 class="m-3">Create new Task</h1>
+<div class="page-container">
+  <h1 class="headers">Create New Task</h1>
+
+  <div class="form-container">
+    <%= simple_form_for @task do |f| %>
+      <%= f.input :title %>
+      <%= f.input :details %>
+      <%= f.submit "Create New Task", class: "btn btn-primary btn-block py-2" %>
+    <% end %>
+  </div>
+
+  <%# link caption with fontawesome %>
+  <%= link_to tasks_path, class: "btn btn-link p-0" do %>
+    <i class="fas fa-undo"></i> Back to Task List
+  <% end %>
+</div>

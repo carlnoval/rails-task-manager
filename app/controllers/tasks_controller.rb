@@ -9,6 +9,6 @@ class TasksController < ApplicationController
   def new
     # initiating an object with nil values
     # needed to instantiate the form_for
-    @restaurant = Task.new
+    @task = Task.new
   end
 end

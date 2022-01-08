@@ -7,10 +7,18 @@
       <%# this list uses bootstrap list group %>
       <ul class="list-group list-group-flush">
         <%# chooses which fontawesome icon to use, which_box method is in the model %>
-        <li class="list-group-item p-0">
+        <li class="list-group-item p-0 d-flex align-items-center">
           <i class="<%= task.checked_or_unchecked %> task-checkbox"></i>
           <%# task_path(task) takes care of the task_id path %>
+          <%# link to the show page %>
           <%= link_to task.title, task_path(task), class: "tasks-title" %>
+          <%# link to the edit page %>
+          <%= link_to restaurants_edit_path(task), class: "action-icon edit-icon" do %>
+            <i class="far fa-edit"></i>
+          <% end %>
+          <%= link_to restaurants_edit_path(task), class: "action-icon delete-icon" do %>
+            <i class="far fa-trash-alt"></i>
+          <% end %>
         </li>
       </ul>
     <% end %>
@@ -18,6 +26,6 @@
 
   <%# link caption with fontawesome %>
   <%= link_to tasks_new_path, class: "btn btn-link p-0" do %>
-    <i class="fas fa-plus"></i> Add new Task
+    <i class="fas fa-plus"></i> Add Task
   <% end %>
 </div>

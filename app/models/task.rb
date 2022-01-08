@@ -4,6 +4,10 @@ class Task < ApplicationRecord
   end
 
   def completed_or_not
-    return self.completed ? "This task has been completed" : "This task has not been completed yet"
+    return self.completed ? "This task has been completed." : "This task has not been completed yet."
+  end
+
+  def toggle_completed
+    return "Click to mark this task as #{ self.completed ? 'not completed.' : 'completed.'}" 
   end
 end

@@ -1,5 +1,5 @@
 <div class="page-container">
-  <h1 class="headers">Create Task</h1>
+  <h1 class="headers">Edit Task: <%= @task.title %></h1>
 
   <div class="form-container">
   <%# @task is a task instance with nil values coming from the task_controller#new %>
@@ -7,8 +7,11 @@
     <%= simple_form_for @task do |f| %>
       <%= f.input :title %>
       <%= f.input :details %>
+      <%# @task.toggle_completed  - check values from model %>
+      <%# as: :boolean            - makes the field a checkbox %>
+      <%= f.input :completed, label: @task.toggle_completed, as: :boolean %>
       <%# the form's submit automatically knows to post to the task_controller#create method %>
-      <%= f.submit "Create Task", class: "btn btn-primary btn-block py-2" %>
+      <%= f.submit "Update Task", class: "btn btn-primary btn-block py-2" %>
     <% end %>
   </div>
 

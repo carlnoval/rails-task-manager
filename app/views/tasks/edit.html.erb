@@ -5,24 +5,13 @@
       <i class="far fa-list-alt"></i> View
     <% end %>
     <%# use any GET path that can provide an id, task_path or tasks_edit_path %>
-    <%= link_to task_path(@task), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger task-btn" do %>
+    <%= link_to task_path(@task), method: :delete, data: { confirm: "Confirm deletion of task" }, class: "btn btn-danger task-btn" do %>
       <i class="far fa-trash-alt"></i> Delete
     <% end %>
   </div>
 
-  <div class="form-container">
-  <%# @task is a task instance with nil values coming from the task_controller#new %>
-  <%# form_for and simple_form_for automatically sets the right request verb, in this case it is post %>
-    <%= simple_form_for @task do |f| %>
-      <%= f.input :title %>
-      <%= f.input :details %>
-      <%# @task.toggle_completed  - check values from model %>
-      <%# as: :boolean            - makes the field a checkbox %>
-      <%= f.input :completed, label: @task.toggle_completed, as: :boolean %>
-      <%# the form's submit automatically knows to post to the task_controller#create method %>
-      <%= f.submit "Update Task", class: "btn btn-primary btn-block py-2" %>
-    <% end %>
-  </div>
+  <%# see partial files, the ones starting with _underscore %>
+  <%= render 'form-edit' %>
 
   <%# link caption with fontawesome %>
   <%= link_to tasks_path, class: "btn btn-link p-0" do %>

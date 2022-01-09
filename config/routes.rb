@@ -14,8 +14,8 @@ Rails.application.routes.draw do
   # READ - index of all task
   get 'tasks', to: 'tasks#index'
   # READ - show on task
+  # get 'tasks/:id', to: 'tasks#show'           # url after cliking link - http://localhost:3000/tasks.id - do not use this
   get 'tasks/:id', to: 'tasks#show', as: :task  # url after cliking link - http://localhost:3000/tasks/id
-  # get 'tasks/:id', to: 'tasks#show'           # url after cliking link - http://localhost:3000/tasks.id
 
   # Update a restaurant
   # get '/restaurants/:id/edit', to: 'restaurants#edit', as: 'restaurants_edit'
@@ -36,4 +36,8 @@ Rails.application.routes.draw do
 
   # replaces all of the above
   # resources :tasks
+  # can cherry pick what to create
+  # resources :restaurants, only: [:create, :index, :destroy]
+  # can cherry pick what not to create
+  # resources :restaurants, only: [:create, :index, :destroy]
 end

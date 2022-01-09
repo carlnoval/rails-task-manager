@@ -18,6 +18,22 @@ body {
   color: rgb(90, 90, 90)
 }
 
+.headers-and-options {
+  gap: 1rem;
+  margin-bottom: 1rem;
+  .headers {
+    // flex grow and shrink
+    flex: 1 1;
+    font-size: 2rem;
+    margin-bottom: 0rem;
+    color: rgb(90, 90, 90)
+  }
+
+  .task-btn {
+    width: 6rem;
+  }
+}
+
 .task-checkbox {
   margin-right: .5rem;
 }
@@ -42,6 +58,11 @@ body {
   margin-bottom: 1rem;
   padding: 0px 1rem 1rem;
   border-bottom: 1px solid rgb(200, 200, 200);
+
+  // remove border lines from bootstrap group items
+  .list-items {
+    border:none;
+  }
 
   .action-icon {
     display: block;

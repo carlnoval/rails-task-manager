@@ -1,9 +1,17 @@
 <div class="page-container">
-  <h1 class="headers">Task: <%= @task.title %></h1>
+  <div class="headers-and-options d-flex align-items-center">
+    <h1 class="headers">Task: <%= @task.title %></h1>
+    <%= link_to tasks_edit_path(@task), class: "btn btn-secondary task-btn" do %>
+      <i i class="far fa-edit"></i> Edit
+    <% end %>
+    <%= link_to tasks_delete_path(@task), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger task-btn" do %>
+      <i class="far fa-trash-alt"></i> Delete
+    <% end %>
+  </div>
   
   <div class="task-info-container">
     <h4 class="task-details"><%= @task.details %></h4>
-    
+
     <p>
       <i class="<%= @task.checked_or_unchecked %> task-checkbox"></i>
       <%= @task.completed_or_not %>

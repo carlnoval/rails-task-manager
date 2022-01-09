@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   # verb 'path', to: 'controllers#method'
 
+  # sets root page to be the tasks view
+  root to: 'tasks#index'
+
   # CREATE - forms page for new tasks
   # get 'tasks/new' route needs to be before 'tasks#show' route, otherwise 'tasks/new' will be treated as an id
   get 'tasks/new', to: 'tasks#new'
@@ -24,12 +27,12 @@ Rails.application.routes.draw do
   # UPDATE - forms page for existing tasks
   # as: 'restaurants_edit' could be as: 'whatever'
   # as: 'restaurants_edit' is needed for link paths
-  get 'tasks/:id/edit', to: 'tasks#edit', as: 'restaurants_edit'
+  get 'tasks/:id/edit', to: 'tasks#edit', as: 'tasks_edit'
   # UPDATE - patch forms page data
   patch 'tasks/:id', to: 'tasks#update'
 
   # DELETE
-  delete 'task/id', to: 'task#destroy'
+  delete 'tasks/:id/delete', to: 'tasks#destroy', as: 'tasks_delete'
 
   # replaces all of the above
   # resources :tasks

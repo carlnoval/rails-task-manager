@@ -1,5 +1,13 @@
 <div class="page-container">
-  <h1 class="headers">Edit Task: <%= @task.title %></h1>
+  <div class="headers-and-options d-flex align-items-center">
+    <h1 class="headers">Edit Task: <%= @task.title %></h1>
+    <%= link_to task_path, class: "btn btn-secondary task-btn" do %>
+      <i class="far fa-list-alt"></i> View
+    <% end %>
+    <%= link_to tasks_delete_path(@task), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger task-btn" do %>
+      <i class="far fa-trash-alt"></i> Delete
+    <% end %>
+  </div>
 
   <div class="form-container">
   <%# @task is a task instance with nil values coming from the task_controller#new %>

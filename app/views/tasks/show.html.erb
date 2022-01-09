@@ -18,8 +18,13 @@
     </p>
   </div>
 
-  <%# link caption with fontawesome %>
-  <%= link_to tasks_path, class: "btn btn-link p-0" do %>
-    <i class="fas fa-undo"></i> Back to Task List
-  <% end %>
+  <div class="footer-actions d-flex ">
+    <%# link caption with fontawesome %>
+    <%= link_to tasks_new_path, class: "btn btn-link p-0" do %>
+      <i class="fas fa-plus"></i> Add Task
+    <% end %>
+    <%= link_to tasks_path, class: "btn btn-link p-0" do %>
+      <i class="fas fa-undo"></i> Back to Task List
+    <% end %>
+  </div>
 </div>

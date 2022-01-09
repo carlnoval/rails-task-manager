@@ -17,7 +17,8 @@
           <%= link_to tasks_edit_path(task), class: "action-icon edit-icon" do %>
             <i class="far fa-edit"></i>
           <% end %>
-          <%= link_to tasks_delete_path(task), method: :delete, data: { confirm: "Are you sure?" }, class: "action-icon delete-icon" do %>
+          <%# use any GET path that can provide an id, task_path or tasks_edit_path %>
+          <%= link_to task_path(task), method: :delete, data: { confirm: "Are you sure?" }, class: "action-icon delete-icon" do %>
             <i class="far fa-trash-alt"></i>
           <% end %>
         </li>

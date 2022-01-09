@@ -32,7 +32,7 @@ Rails.application.routes.draw do
   patch 'tasks/:id', to: 'tasks#update'
 
   # DELETE
-  delete 'tasks/:id/delete', to: 'tasks#destroy', as: 'tasks_delete'
+  delete 'tasks/:id', to: 'tasks#destroy'
 
   # replaces all of the above
   # resources :tasks

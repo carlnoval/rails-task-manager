@@ -4,7 +4,8 @@
     <%= link_to tasks_edit_path(@task), class: "btn btn-secondary task-btn" do %>
       <i i class="far fa-edit"></i> Edit
     <% end %>
-    <%= link_to tasks_delete_path(@task), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger task-btn" do %>
+    <%# use any GET path that can provide an id, task_path or tasks_edit_path %>
+    <%= link_to task_path(@task), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger task-btn" do %>
       <i class="far fa-trash-alt"></i> Delete
     <% end %>
   </div>

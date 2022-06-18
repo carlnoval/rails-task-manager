@@ -1,34 +1,36 @@
 <%# class="container" is used by bootstrap, use othernames-container, get fucked if you forgot %>
-<div class="page-container">
-  <h1 class="headers">Tasks List</h1>
+<div class="container-sm page-container">
+  <div class="main-sections-container">
+    <h1 class="headers">Tasks List</h1>
 
-  <div class="task-container">
-    <%# this list uses bootstrap list group %>
-    <ul class="list-group">
-      <% @tasks.each do |task| %>
-        <%# cool bootstrap display flexing %>
-        <li class="list-group-item p-0 d-flex align-items-center list-items">
-          <%# chooses which fontawesome icon to use, which_box method is in the model %>
-          <i class="<%= task.checked_or_unchecked %> task-checkbox"></i>
-          <%# task_path(task) takes care of the task_id path %>
-          <%# link to the show page %>
-          <%= link_to task.title, task_path(task), class: "tasks-title" %>
-          <%# link to the edit page %>
-          <%= link_to tasks_edit_path(task), class: "action-icon edit-icon" do %>
-            <i class="far fa-edit"></i>
-          <% end %>
-          <%# use any GET path that can provide an id, task_path or tasks_edit_path %>
-          <%= link_to task_path(task), method: :delete, data: { confirm: "Confirm deletion of task" }, class: "action-icon delete-icon" do %>
-            <i class="far fa-trash-alt"></i>
-          <% end %>
-        </li>
-      <% end %>
-    </ul>
+    <div class="task-container">
+      <%# this list uses bootstrap list group %>
+      <ul class="list-group">
+        <% @tasks.each do |task| %>
+          <%# cool bootstrap display flexing %>
+          <li class="list-group-item p-0 d-flex align-items-center list-items">
+            <%# chooses which fontawesome icon to use, which_box method is in the model %>
+            <i class="<%= task.checked_or_unchecked %> task-checkbox"></i>
+            <%# task_path(task) takes care of the task_id path %>
+            <%# link to the show page %>
+            <%= link_to task.title, task_path(task), class: "tasks-title" %>
+            <%# link to the edit page %>
+            <%= link_to tasks_edit_path(task), class: "action-icon edit-icon" do %>
+              <i class="far fa-edit"></i>
+            <% end %>
+            <%# use any GET path that can provide an id, task_path or tasks_edit_path %>
+            <%= link_to task_path(task), method: :delete, data: { confirm: "Confirm deletion of task" }, class: "action-icon delete-icon" do %>
+              <i class="far fa-trash-alt"></i>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+
+    <%# link caption with fontawesome %>
+    <%= link_to tasks_new_path, class: "btn btn-link p-0" do %>
+      <i class="fas fa-plus"></i> Add Task
+    <% end %>
   </div>
-
-  <%# link caption with fontawesome %>
-  <%= link_to tasks_new_path, class: "btn btn-link p-0" do %>
-    <i class="fas fa-plus"></i> Add Task
-  <% end %>
 </div>
 

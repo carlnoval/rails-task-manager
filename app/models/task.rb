@@ -1,4 +1,12 @@
 class Task < ApplicationRecord
+
+  validates :title, presence: true
+
+  def truncated_details
+    # returns first 16 characters of details
+    details[0..15]
+  end
+
   def checked_or_unchecked
     return self.completed ? "far fa-check-square" : "far fa-square"
   end

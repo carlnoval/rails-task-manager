@@ -4,7 +4,7 @@ class Task < ApplicationRecord
 
   def truncated_details
     # returns first 16 characters of details
-    details[0..15]
+    "#{details[0..15]...}"
   end
 
   def checked_or_unchecked

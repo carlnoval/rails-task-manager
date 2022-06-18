@@ -11,7 +11,7 @@
   </div>
 
   <%# see partial files, the ones starting with _underscore %>
-  <%= render 'form-edit' %>
+  <%= render 'form-create-or-edit', task: @task %>
 
   <%# link caption with fontawesome %>
   <%= link_to tasks_path, class: "btn btn-link p-0" do %>

@@ -6,29 +6,40 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-def create_uncompleted_tasks(task_count)
+# def create_uncompleted_tasks(task_count)
+#   task_count.times do
+#     task_title = Faker::Verb.base.capitalize
+#     task_details = "#{task_title} #{rand(1..10)} #{Faker::Game.title}"
+#     new_task = Task.new(title: task_title, details: task_details)
+#     new_task.save
+#   end
+# end
+
+# def create_completed_tasks(task_count)
+#   task_count.times do
+#     task_title = Faker::Verb.base.capitalize
+#     task_details = "#{task_title} #{rand(1..10)} #{Faker::Game.title}"
+#     new_task = Task.new(title: task_title, details: task_details, completed: true)
+#     new_task.save
+#   end
+# end
+
+def create_tasks(task_count = 1)
+  preposition = %w( now later tomorrow next\ week next\ month next\ year )
   task_count.times do
     task_title = Faker::Verb.base.capitalize
-    task_details = "#{task_title} #{rand(1..10)} #{Faker::Game.title}"
-    new_task = Task.new(title: task_title, details: task_details)
+    task_details = "#{task_title} and #{Faker::Verb.base.capitalize} #{rand(1..10)} #{Faker::Game.title} #{preposition.sample}"
+    new_task = Task.new(title: task_title, details: task_details, completed: [true, false].sample)
     new_task.save
   end
 end
 
-def create_completed_tasks(task_count)
-  task_count.times do
-    task_title = Faker::Verb.base.capitalize
-    task_details = "#{task_title} #{rand(1..10)} #{Faker::Game.title}"
-    new_task = Task.new(title: task_title, details: task_details, completed: true)
-    new_task.save
-  end
-end
-
-puts "Deleting all Tasks..."
+existing_tasks = Task.all.count
+x = 15
+puts "Deleting all #{existing_tasks} Tasks..."
 Task.destroy_all
-puts 'Create 9 Tasks...'
-create_uncompleted_tasks(2)
-create_completed_tasks(4)
-create_uncompleted_tasks(2)
-puts 'Completed creating Tasks...'
+puts "#{existing_tasks} Tasks deleted..."
+puts "Creating #{x} new Tasks..."
+create_tasks(x)
+puts "Completed creating #{x} Tasks..."
 

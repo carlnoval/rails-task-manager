@@ -16,14 +16,18 @@ RSpec.describe Task, type: :model do
   let!(:task) { Task.new(title: "Rspec Task for testing", details: "12345678901234567890<-twenty characters") }
 
   describe '#initialize' do
-    it 'returns a valid Task' do
-      expect(task.valid?).to eq(true)
+    context 'when valid' do
+      it 'returns a valid Task' do
+        expect(task.valid?).to eq(true)
+      end
     end
-
-    it 'returns an invalid Task without a title' do
-      task = Task.new(details: "12345678901234567890<-twenty characters")
-      task.valid?
-      expect(task.errors.messages[:title][0]).to eq("can't be blank")
+    
+    context 'when invalid' do
+      it 'returns an invalid Task without a title' do
+        task = Task.new(details: "12345678901234567890<-twenty characters")
+        task.valid?
+        expect(task.errors.messages[:title][0]).to eq("can't be blank")
+      end
     end
   end
 

@@ -22,7 +22,8 @@ RSpec.describe Task, type: :model do
 
     it 'returns an invalid Task without a title' do
       task = Task.new(details: "12345678901234567890<-twenty characters")
-      expect(task.valid?).to eq(false)
+      task.valid?
+      expect(task.errors.messages[:title][0]).to eq("can't be blank")
     end
   end
 

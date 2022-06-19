@@ -19,6 +19,11 @@ RSpec.describe Task, type: :model do
       task = Task.new(title: "Rspec Task for testing", details: "12345678901234567890<-twenty characters")
       expect(task.valid?).to eq(true)
     end
+
+    it 'returns an invalid Task without a title' do
+      task = Task.new(details: "12345678901234567890<-twenty characters")
+      expect(task.valid?).to eq(false)
+    end
   end
 
   describe '#truncated_details' do

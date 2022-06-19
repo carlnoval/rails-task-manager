@@ -15,21 +15,30 @@ require 'rails_helper'
 RSpec.describe Task, type: :model do
   let!(:task) { Task.new(title: "Rspec Task for testing", details: "12345678901234567890<-twenty characters") }
 
-describe '#initialize' do
-  context 'when valid' do
-    it 'returns a valid Task' do
-      expect(task.valid?).to eq(true)
+  describe '#initialize' do
+    context 'when valid' do
+      it 'returns a valid Task' do
+        expect(task.valid?).to eq(true)
+      end
+    end
+    
+    context 'task without title' do
+      # the test in this 'it' block is not a good practice,
+      # the proper way is on the next it block
+      # this 'it' block is just for rspec demo purpose
+      it 'task is invalid' do
+        task = Task.new(details: "12345678901234567890<-twenty characters")
+        task.valid?
+        expect(task.valid?).to eq(false)
+      end
+
+      it 'returns an error message' do
+        task = Task.new(details: "12345678901234567890<-twenty characters")
+        task.valid?
+        expect(task.errors.messages[:title][0]).to eq("can't be blank")
+      end
     end
   end
-  
-  context 'when invalid' do
-    it 'returns an error message' do
-      task = Task.new(details: "12345678901234567890<-twenty characters")
-      task.valid?
-      expect(task.errors.messages[:title][0]).to eq("can't be blank")
-    end
-  end
-end
 
   describe '#truncated_details' do
     it 'returns the first 16 characters + "..." of the task description' do

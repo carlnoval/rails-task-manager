@@ -31,7 +31,6 @@ RSpec.describe Task, type: :model do
       # the proper way is on the next it block
       # this 'it' block is just for 'context when...' demo purpose
       it 'task is invalid' do
-        task.valid?
         expect(task.valid?).to eq(false)
       end
 

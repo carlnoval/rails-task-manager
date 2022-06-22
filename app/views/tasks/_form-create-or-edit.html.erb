@@ -11,8 +11,12 @@
     <%= f.input :details %>
     <%# @task.toggle_completed  - check values from model %>
     <%# as: :boolean            - makes the field a checkbox %>
-    <%= f.input :completed, label: task.toggle_completed, as: :boolean unless task.new_record? %>
-    <%# the form's submit automatically knows to post to the task_controller#create method %>
-    <%= f.submit "Update Task", class: "btn btn-primary btn-block py-2" %>
+    <% if task.new_record? %>
+      <%= f.submit "Create Task", class: "btn btn-primary btn-block py-2" %>
+    <% else %>
+      <%= f.input :completed, label: task.toggle_completed, as: :boolean %>
+      <%# the form's submit automatically knows to post to the task_controller#create method %>
+      <%= f.submit "Update Task", class: "btn btn-primary btn-block py-2" %>
+    <% end %>
   <% end %>
 </div>
